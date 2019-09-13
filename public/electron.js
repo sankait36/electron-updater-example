@@ -61,6 +61,7 @@ function updateAppTheme(status) {
 
 app.on('ready', () => {
   createWindow();
+  autoUpdater.checkForUpdatesAndNotify();
 });
 
 autoUpdater.on('checking-for-update', () => {
