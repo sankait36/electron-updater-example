@@ -15,12 +15,30 @@
     "type": "git",
     "url": "git+https://github.com/sankait36/electron-updater-example.git"
   },
-  "author": "",
+  "author": {
+    "name": "sankait36"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "com.sankait36.electron-auto-updater",
+    "productName": "Auto Updater",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "./public/electron.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sankait36/electron-updater-example/issues"
   },
-  "homepage": "https://github.com/sankait36/electron-updater-example#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "electron-is-dev": "^1.1.0",
