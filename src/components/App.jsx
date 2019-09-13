@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="container custom-container">
+        <h2>This is version 1.0.1</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
