@@ -20,26 +20,6 @@ log.info('App starting...');
 
 let mainWindow;
 
-let template = []
-if (process.platform === 'darwin') {
-  // OS X
-  const name = app.getName();
-  template.unshift({
-    label: name,
-    submenu: [
-      {
-        label: 'About ' + name,
-        role: 'about'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click() { app.quit(); }
-      },
-    ]
-  })
-}
-
 function sendStatusToWindow(text) {
   log.info(text);
   mainWindow.webContents.send('message', text);
@@ -62,9 +42,7 @@ function createWindow() {
     )
   }
   mainWindow.loadURL(isDev ? 'http://localhost:8080' : `file://${path.join(__dirname, '../build/index.html')}`);
-  if (isDev) {
-    mainWindow.webContents.openDevTools();
-  }
+  mainWindow.webContents.openDevTools();
   mainWindow.webContents.on('did-finish-load', () => {
     if (process.platform === 'darwin') {
       updateAppTheme(systemPreferences.isDarkMode());
@@ -82,8 +60,6 @@ function updateAppTheme(status) {
 }
 
 app.on('ready', () => {
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
   createWindow();
 });
 
