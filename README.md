@@ -3,7 +3,7 @@ This project demonstrates how to use electron with an auto updater
 
 # To Test
 - Fork this repo
-- Change the repository url and author in ```package.json```
+- Change the repository url, author, and appid in ```package.json```
 - Install dependencies with ```yarn install```
 - Generate a [GitHub access token](https://github.com/settings/tokens/new) with `repo` permissions, assign it to the following environent variable
   - export GH_TOKEN=<YOUR_TOKEN_HERE>
