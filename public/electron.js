@@ -61,6 +61,7 @@ function updateAppTheme(status) {
 
 app.on('ready', () => {
   createWindow();
+  autoUpdater.checkForUpdatesAndNotify();
 });
 
 autoUpdater.on('checking-for-update', () => {
@@ -94,5 +95,6 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (mainWindow === null) {
     createWindow();
+    autoUpdater.checkForUpdatesAndNotify();
   }
 });
