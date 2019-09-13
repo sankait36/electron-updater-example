@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import '../../styles/App.scss';
+import { version } from '../../package.json';
+
+const { ipcRenderer } = window.require('electron');
+
 
 class App extends Component {
   constructor() {
@@ -14,8 +18,12 @@ class App extends Component {
   }
 
   render() {
+    ipcRenderer.on('message', (event, text) => {
+      console.log(text);
+    });
     return (
       <div className="container custom-container">
+        <h2>This is version: {version}</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
