@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import '../../styles/App.scss';
 import { version } from '../../package.json';
 
+const { ipcRenderer } = window.require('electron');
+
+
 class App extends Component {
   constructor() {
     super();
@@ -15,6 +18,9 @@ class App extends Component {
   }
 
   render() {
+    ipcRenderer.on('message', (event, text) => {
+      console.log(text);
+    });
     return (
       <div className="container custom-container">
         <h2>This is version: {version}</h2>

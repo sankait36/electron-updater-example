@@ -20,6 +20,11 @@ log.info('App starting...');
 
 let mainWindow;
 
+function sendStatusToWindow(text) {
+  log.info(text);
+  mainWindow.webContents.send('message', text);
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1100,
@@ -60,25 +65,25 @@ app.on('ready', () => {
 });
 
 autoUpdater.on('checking-for-update', () => {
-  console.log('Checking for update...');
+  sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  console.log('Update available.');
+  sendStatusToWindow('Update available.');
 })
 autoUpdater.on('update-not-available', (info) => {
-  console.log('Update not available.');
+  sendStatusToWindow('Update not available.');
 })
 autoUpdater.on('error', (err) => {
-  console.log('Error in auto-updater. ' + err);
+  sendStatusToWindow('Error in auto-updater. ' + err);
 })
 autoUpdater.on('download-progress', (progressObj) => {
   let log_message = "Download speed: " + progressObj.bytesPerSecond;
   log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-  console.log(log_message);
+  sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-  console.log('Update downloaded');
+  sendStatusToWindow('Update downloaded');
 });
 
 app.on('window-all-closed', () => {
