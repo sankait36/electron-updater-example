@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import '../../styles/App.scss';
+import { version } from '../package.json';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="container custom-container">
-        <h2>This is version 1.0.1</h2>
+        <h2>This is version: {version}</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
