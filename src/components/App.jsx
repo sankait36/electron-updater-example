@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import '../../styles/App.scss';
-import { version } from '../package.json';
+import { version } from '../../package.json';
 
 class App extends Component {
   constructor() {
