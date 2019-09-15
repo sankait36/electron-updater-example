@@ -1,0 +1,26 @@
+.status-bar-container {
+  position: fixed;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  font-size: .8rem;
+  padding: .5rem;
+  color: var(--font-color);
+  background-color: var(--status-bar-background)
+};
+
+.status-bar-row {
+  display: flex;
+}
+
+.status-bar-col {
+  text-align: right;
+}
+
+.status-bar-col-left {
+  flex: 85%;
+}
+
+.status-bar-col-right {
+  flex: 15%;
+}
