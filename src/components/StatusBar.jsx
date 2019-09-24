@@ -40,18 +40,14 @@ class StatusBar extends Component {
       console.log(text);
       this.handleUpdateMessage(text);
     });
-    if (updateStatus) {
-      return (
-        <div className="status-bar-container">
-          <div className="status-bar-row">
-            <div className="status-bar-col status-bar-col-left">{updateStatus}</div>
-            <div className="status-bar-col status-bar-col-right">Version: {version}</div>
-          </div>
+    return (
+      <div className="status-bar-container">
+        <div className="status-bar-row">
+          <div className="status-bar-col status-bar-col-left">{updateStatus}</div>
+          <div className="status-bar-col status-bar-col-right">Version: {version}</div>
         </div>
-      );
-    } else {
-      return <div />;
-    }
+      </div>
+    );
   }
 }
 
