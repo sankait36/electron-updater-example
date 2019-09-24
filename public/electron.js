@@ -6,14 +6,6 @@ const isDev = require('electron-is-dev');
 
 const { autoUpdater } = require('electron-updater');
 
-//-------------------------------------------------------------------
-// Logging
-//
-// THIS SECTION IS NOT REQUIRED
-//
-// This logging setup is not required for auto-updates to work,
-// but it sure makes debugging easier :)
-//-------------------------------------------------------------------
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
@@ -65,25 +57,25 @@ app.on('ready', () => {
 });
 
 autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
+  sendStatusToWindow('checking-for-update');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
+  sendStatusToWindow('update-available');
 })
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('Update not available.');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in auto-updater. ' + err);
+  sendStatusToWindow('error' + err);
 })
 autoUpdater.on('download-progress', (progressObj) => {
   let log_message = "Download speed: " + progressObj.bytesPerSecond;
   log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-  sendStatusToWindow(log_message);
+  sendStatusToWindow('download-progress');
 })
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
+  sendStatusToWindow('update-downloaded');
 });
 
 app.on('window-all-closed', () => {
